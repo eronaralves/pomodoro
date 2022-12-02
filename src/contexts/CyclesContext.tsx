@@ -35,8 +35,10 @@ export function CyclesContenxtProvider({children}: CyclesContenxtProvider) {
 
     if(storangeStateAsJSON) {
       return JSON.parse(storangeStateAsJSON)
+    } else {
+      return state;
     }
-    
+
   })
   const {cycles, activeCycleId} = cyclesState;
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId)
@@ -47,13 +49,13 @@ export function CyclesContenxtProvider({children}: CyclesContenxtProvider) {
     }
 
     return 0
-  })
+  }, [])
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState)
 
     localStorage.setItem('@pomodoro:cycles-state.1.0.0', stateJSON)
-  }, [])
+  }, [cyclesState])
 
 
   function markCurrentCycleFinished() {
