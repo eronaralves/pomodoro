@@ -49,7 +49,7 @@ export function CyclesContenxtProvider({children}: CyclesContenxtProvider) {
     }
 
     return 0
-  }, [])
+  })
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState)
