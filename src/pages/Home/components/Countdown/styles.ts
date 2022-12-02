@@ -17,6 +17,11 @@ export const CountdownContainer = styled.div`
     border-radius: 2px;
     background-color: ${props => props.theme["gray-700"]};
   }
+
+  @media(max-width: 750px){
+    font-size: 1.5rem;
+    line-height: .5rem;
+  }
 `
 
 export const Separator = styled.div`
@@ -27,6 +32,13 @@ export const Separator = styled.div`
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   color: ${props => props.theme["green-500"]};
+
+  @media(max-width: 750px){
+    width: 1rem; 
+    font-size: 3rem;
+    overflow: initial;
+  }
 `

@@ -13,4 +13,8 @@ export const LayoutContainer = styled.div`
 
   border-radius: 8px;
   background-color: ${props => props.theme["gray-800"]};
+
+  @media(max-width: 750px){
+    padding-inline: 1.2rem;
+  }
 `
