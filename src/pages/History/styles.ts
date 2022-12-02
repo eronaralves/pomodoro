@@ -3,13 +3,36 @@ import styled from "styled-components";
 export const HistoryContainer = styled.main`
   flex: 1;
 
-  padding: 3.5rem;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+
+  padding: 2.5rem;
+
+  @media(max-width: 750px){
+    padding-inline: 0;
+  }
 
   h1 {
     font-size: 1.5rem;
     color: ${props => props.theme["gray-100"]};
+  }
+
+  
+`
+
+export const ContentMenssage = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: ${props => props.theme["gray-500"]};
   }
 `
 
@@ -60,6 +83,16 @@ export const HistoryList = styled.main`
 
       &:last-child {
         padding-right: 1.5rem;
+      }
+
+      @media(max-width: 730px) {
+        font-size: 0.8rem;
+      }
+
+      @media(max-width: 400px) {
+        &:first-child {
+        width: 30%;
+      }
       }
     }
   }

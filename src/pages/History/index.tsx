@@ -3,7 +3,7 @@ import {formatDistanceToNow} from 'date-fns'
 import prBt from 'date-fns/locale/pt-BR'
 
 import { CycleContext } from "../../contexts/CyclesContext";
-import { HistoryContainer, HistoryList, Status } from "./styles";
+import { HistoryContainer, HistoryList, Status, ContentMenssage } from "./styles";
 
 export function History() {
   const {cycles} = useContext(CycleContext)
@@ -12,7 +12,8 @@ export function History() {
     <HistoryContainer>
       <h1>Meu histórico</h1>
 
-      <HistoryList>
+      {cycles.length !== 0 ? (
+        <HistoryList>
         <table>
           <thead>
             <tr>
@@ -44,6 +45,9 @@ export function History() {
           </tbody>
         </table>
       </HistoryList>
+      ): <ContentMenssage>
+          <span>Você ainda não iniciou nenhum ciclo</span>
+        </ContentMenssage>}
     </HistoryContainer>
   )
 }
