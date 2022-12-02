@@ -30,12 +30,13 @@ export function CyclesContenxtProvider({children}: CyclesContenxtProvider) {
   const [cyclesState, dispatch] = useReducer(cyclesReducer, {
     cycles: [],
     activeCycleId: null
-  }, () => {
+  }, (state) => {
     const storangeStateAsJSON = localStorage.getItem('@pomodoro:cycles-state.1.0.0')
 
     if(storangeStateAsJSON) {
       return JSON.parse(storangeStateAsJSON)
     }
+    
   })
   const {cycles, activeCycleId} = cyclesState;
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId)
@@ -52,7 +53,7 @@ export function CyclesContenxtProvider({children}: CyclesContenxtProvider) {
     const stateJSON = JSON.stringify(cyclesState)
 
     localStorage.setItem('@pomodoro:cycles-state.1.0.0', stateJSON)
-  }, [cyclesState])
+  }, [])
 
 
   function markCurrentCycleFinished() {
